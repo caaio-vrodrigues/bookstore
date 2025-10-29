@@ -44,4 +44,9 @@ public class CountryService {
 	public Country getCountryByIsoCode(String isoCode) {
 		return repo.findByIsoAlpha2Code(isoCode);
 	}
+	
+	public Country getCountryById(Integer id) {
+		return repo.findById(id).orElseThrow(() ->
+		 new IllegalArgumentException("País com id: "+id+", não encontrado"));
+	}
 }
