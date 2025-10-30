@@ -24,7 +24,8 @@ public class AuthorService {
 		Author existingAuthor = repo.findByFullNameAndBirthDayAndCountry(
            body.getFullName(), body.getBirthDay(), country
         );
-		if(existingAuthor != null ) return existingAuthor;
+		boolean authorAlreadyExists = existingAuthor != null;
+		if(authorAlreadyExists) return existingAuthor;
 		Author newAuthor = Author.builder()
 			.fullName(body.getFullName())	
 			.birthDay(body.getBirthDay())
@@ -52,19 +53,17 @@ public class AuthorService {
 		LocalDate potentialBirthDay = containsBirthDay ? 
 			body.getBirthDay() : existingAuthor.getBirthDay();
 		Country potentialCountry = existingAuthor.getCountry();
-		if(containsCountry) 
-			potentialCountry = countryService.getCountryById(body.getCountry().getId());
-		Author authorByFullNameAndBirthDayAndCountry = repo.findByFullNameAndBirthDayAndCountry(
-           potentialFullName, potentialBirthDay, potentialCountry
-        );
-		boolean existsAuthorByFullNameAndBirthDayAndCountry = 
-			authorByFullNameAndBirthDayAndCountry != null;
-		if(existsAuthorByFullNameAndBirthDayAndCountry) {
-			boolean isTheExistingAuthor = authorByFullNameAndBirthDayAndCountry.getId().equals(
-				existingAuthor.getId());
-	        if(!isTheExistingAuthor) throw new IllegalArgumentException("An author with the same full name, birth day, and country already exists.");
-	        return existingAuthor;
+		if(containsCountry) {
+			boolean isSameCountry = existingAuthor.getCountry().getId().equals(
+				body.getCountry().getId());
+			if(!isSameCountry) 
+				potentialCountry = countryService.getCountryById(body.getCountry().getId());
 		}
+		Author potentialAuthor = repo.findByFullNameAndBirthDayAndCountry(
+			potentialFullName, potentialBirthDay, potentialCountry
+        );
+		boolean potentialAuthorAlreadyExists = potentialAuthor != null;
+		if(potentialAuthorAlreadyExists) return potentialAuthor;
 		existingAuthor.setFullName(potentialFullName);
 		existingAuthor.setBirthDay(potentialBirthDay);
 		existingAuthor.setCountry(potentialCountry);
