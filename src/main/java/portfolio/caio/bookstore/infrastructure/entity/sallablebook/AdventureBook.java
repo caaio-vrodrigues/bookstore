@@ -1,6 +1,5 @@
-package portfolio.caio.bookstore.infrastructure.entity;
+package portfolio.caio.bookstore.infrastructure.entity.sallablebook;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,23 +8,20 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import portfolio.caio.bookstore.model.interfaces.genre.Adventure;
 
 @Entity
-@Table(name="country")
+@Table(name="adventure_book")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=true)
 @Data
 @Builder
-public class Country {
-	
+public class AdventureBook extends SallableBook implements Adventure {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-
-	@Column(unique=true, length=2, nullable=false)
-	private String isoAlpha2Code;
-	
-	@Column(name="name", nullable=false, unique=true)
-	private String name;
+	public Long id;
 }

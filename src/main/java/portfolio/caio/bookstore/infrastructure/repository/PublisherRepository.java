@@ -3,8 +3,8 @@ package portfolio.caio.bookstore.infrastructure.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import portfolio.caio.bookstore.infrastructure.entity.Country;
-import portfolio.caio.bookstore.infrastructure.entity.Publisher;
+import portfolio.caio.bookstore.infrastructure.entity.country.Country;
+import portfolio.caio.bookstore.infrastructure.entity.publisher.Publisher;
 
 @Repository
 public interface PublisherRepository extends JpaRepository<Publisher, Integer> {

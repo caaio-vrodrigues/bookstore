@@ -1,4 +1,4 @@
-package portfolio.caio.bookstore.infrastructure.entity.dto.country;
+package portfolio.caio.bookstore.infrastructure.entity.country;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

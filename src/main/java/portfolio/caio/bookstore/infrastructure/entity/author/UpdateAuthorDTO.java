@@ -1,4 +1,4 @@
-package portfolio.caio.bookstore.infrastructure.entity.dto.author;
+package portfolio.caio.bookstore.infrastructure.entity.author;
 
 import java.time.LocalDate;
 
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.Country;
+import portfolio.caio.bookstore.infrastructure.entity.country.Country;
 
 @AllArgsConstructor
 @NoArgsConstructor

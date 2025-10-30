@@ -1,34 +1,28 @@
-package portfolio.caio.bookstore.infrastructure.entity;
+package portfolio.caio.bookstore.infrastructure.entity.sallablebook;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import portfolio.caio.bookstore.model.interfaces.genre.Comedy;
 
 @Entity
-@Table(name="publisher")
+@Table(name="comedy_book")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper=true)
 @Data
 @Builder
-public class Publisher {
+public class ComedyBook extends SallableBook implements Comedy {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(name="name", nullable=false)
-	private String name;
-	
-	@ManyToOne
-	@JoinColumn(name="country", nullable=false)
-	private Country country;
+	public Long id;
 }
+

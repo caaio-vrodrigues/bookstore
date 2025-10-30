@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.Country;
-import portfolio.caio.bookstore.infrastructure.entity.Publisher;
-import portfolio.caio.bookstore.infrastructure.entity.dto.publisher.CreatePublisherDTO;
-import portfolio.caio.bookstore.infrastructure.entity.dto.publisher.UpdatePublisherDTO;
+import portfolio.caio.bookstore.infrastructure.entity.country.Country;
+import portfolio.caio.bookstore.infrastructure.entity.publisher.CreatePublisherDTO;
+import portfolio.caio.bookstore.infrastructure.entity.publisher.Publisher;
+import portfolio.caio.bookstore.infrastructure.entity.publisher.UpdatePublisherDTO;
 import portfolio.caio.bookstore.infrastructure.repository.PublisherRepository;
 
 @RequiredArgsConstructor

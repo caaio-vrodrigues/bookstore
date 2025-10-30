@@ -1,4 +1,4 @@
-package portfolio.caio.bookstore.infrastructure.entity.dto.publisher;
+package portfolio.caio.bookstore.infrastructure.entity.publisher;
 
 import jakarta.validation.constraints.NotNull;
 
@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.Country;
+import portfolio.caio.bookstore.infrastructure.entity.country.Country;
 
 @AllArgsConstructor
 @NoArgsConstructor

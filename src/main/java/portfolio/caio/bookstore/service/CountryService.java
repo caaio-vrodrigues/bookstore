@@ -7,8 +7,8 @@ import java.util.Locale;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.Country;
-import portfolio.caio.bookstore.infrastructure.entity.dto.country.CreateCountryDTO;
+import portfolio.caio.bookstore.infrastructure.entity.country.Country;
+import portfolio.caio.bookstore.infrastructure.entity.country.CreateCountryDTO;
 import portfolio.caio.bookstore.infrastructure.repository.CountryRepository;
 
 @RequiredArgsConstructor

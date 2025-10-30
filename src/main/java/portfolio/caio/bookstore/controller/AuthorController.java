@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.Author;
-import portfolio.caio.bookstore.infrastructure.entity.dto.author.CreateAuthorDTO;
-import portfolio.caio.bookstore.infrastructure.entity.dto.author.UpdateAuthorDTO;
+import portfolio.caio.bookstore.infrastructure.entity.author.Author;
+import portfolio.caio.bookstore.infrastructure.entity.author.CreateAuthorDTO;
+import portfolio.caio.bookstore.infrastructure.entity.author.UpdateAuthorDTO;
 import portfolio.caio.bookstore.service.AuthorService;
 
 @RequiredArgsConstructor
