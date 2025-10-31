@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.book.CreateBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.CreateSallableBookDTO;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.SallableBook;
 import portfolio.caio.bookstore.service.BookService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(name="book")
+@RequestMapping("/book")
 public class BookController {
 	
 	private final BookService service;
 
 	@PostMapping
-	public ResponseEntity<SallableBook> newBook(@RequestBody CreateBookDTO body){
+	public ResponseEntity<SallableBook> newBook(@RequestBody CreateSallableBookDTO body){
 		return ResponseEntity.ok(service.createBook(body));
 	}
 }

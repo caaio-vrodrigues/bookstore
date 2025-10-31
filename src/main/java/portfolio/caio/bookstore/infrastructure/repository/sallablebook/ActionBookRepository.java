@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.action.ActionBook;
 
 @Repository
-public interface ActionBookRepository extends JpaRepository<ActionBook, Long> {}
+public interface ActionBookRepository extends BookRepositoryBase<ActionBook>, JpaRepository<ActionBook, Long> {}

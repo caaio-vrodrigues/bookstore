@@ -12,31 +12,33 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.book.CreateBookDTO;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.action.ActionBook;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.adventure.AdventureBook;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.comedy.ComedyBook;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.drama.DramaBook;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.fantasy.FantasyBook;
-import portfolio.caio.bookstore.infrastructure.entity.sallablebook.romance.RomanceBook;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.action.CreateActionBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.adventure.CreateAdventureBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.comedy.CreateComedyBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.drama.CreateDramaBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.fantasy.CreateFantasyBookDTO;
+import portfolio.caio.bookstore.infrastructure.entity.sallablebook.romance.CreateRomanceBookDTO;
 
 @MappedSuperclass
 @EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@SuperBuilder
 @JsonTypeInfo(
 	use=JsonTypeInfo.Id.NAME,
 	include=JsonTypeInfo.As.PROPERTY,
 	property="type"
 )
 @JsonSubTypes({
-	@JsonSubTypes.Type(value=ActionBook.class, name="actionBook"),
-	@JsonSubTypes.Type(value=AdventureBook.class, name="adventureBook"),
-	@JsonSubTypes.Type(value=ComedyBook.class, name="comedyBook"),
-	@JsonSubTypes.Type(value=DramaBook.class, name="dramaBook"),
-	@JsonSubTypes.Type(value=FantasyBook.class, name="fantasyBook"),
-	@JsonSubTypes.Type(value=RomanceBook.class, name="romanceBook")
+	@JsonSubTypes.Type(value=CreateActionBookDTO.class, name="actionBook"),
+    @JsonSubTypes.Type(value=CreateAdventureBookDTO.class, name="adventureBook"),
+    @JsonSubTypes.Type(value=CreateComedyBookDTO.class, name="comedyBook"),      
+    @JsonSubTypes.Type(value=CreateDramaBookDTO.class, name="dramaBook"),
+    @JsonSubTypes.Type(value=CreateFantasyBookDTO.class, name="fantasyBook"),
+    @JsonSubTypes.Type(value=CreateRomanceBookDTO.class, name="romanceBook")
 })
 public abstract class CreateSallableBookDTO extends CreateBookDTO {
 	

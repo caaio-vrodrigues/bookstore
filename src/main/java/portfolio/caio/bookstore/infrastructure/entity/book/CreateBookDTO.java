@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.author.Author;
 import portfolio.caio.bookstore.infrastructure.entity.publisher.Publisher;
 
@@ -16,6 +17,7 @@ import portfolio.caio.bookstore.infrastructure.entity.publisher.Publisher;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@SuperBuilder
 public abstract class CreateBookDTO {
 	
 	@NotBlank(message="O campo 'title' não estar em branco.")

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.CreateSallableBookDTO;
 import portfolio.caio.bookstore.model.enums.booksession.DramaSession;
 
@@ -13,7 +14,7 @@ import portfolio.caio.bookstore.model.enums.booksession.DramaSession;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Builder
+@SuperBuilder
 public class CreateDramaBookDTO extends CreateSallableBookDTO {
 
 	@NotNull(message="O campo 'session' não pode ser nulo.")

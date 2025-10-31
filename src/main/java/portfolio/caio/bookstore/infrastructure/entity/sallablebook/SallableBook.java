@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.book.Book;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.action.ActionBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.adventure.AdventureBook;
@@ -18,13 +19,14 @@ import portfolio.caio.bookstore.infrastructure.entity.sallablebook.comedy.Comedy
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.drama.DramaBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.fantasy.FantasyBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.romance.RomanceBook;
-import portfolio.caio.bookstore.model.interfaces.Seller;
+import portfolio.caio.bookstore.model.interfaces.Sallable;
 
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Data
+@SuperBuilder
 @JsonTypeInfo(
 	use=JsonTypeInfo.Id.NAME,
 	include=JsonTypeInfo.As.PROPERTY,
@@ -38,7 +40,7 @@ import portfolio.caio.bookstore.model.interfaces.Seller;
 	@JsonSubTypes.Type(value=FantasyBook.class, name="fantasyBook"),
 	@JsonSubTypes.Type(value=RomanceBook.class, name="romanceBook")
 })
-public abstract class SallableBook extends Book implements Seller {
+public abstract class SallableBook extends Book implements Sallable {
 	
 	@Column(name="price", nullable=false)
 	private BigDecimal price;

@@ -13,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.SallableBook;
 import portfolio.caio.bookstore.model.enums.booksession.FantasySession;
 import portfolio.caio.bookstore.model.interfaces.genre.Fantasy;
@@ -23,7 +24,7 @@ import portfolio.caio.bookstore.model.interfaces.genre.Fantasy;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Data
-@Builder
+@SuperBuilder
 public class FantasyBook extends SallableBook implements Fantasy {
 
 	@Id

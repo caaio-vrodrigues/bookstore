@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.drama.DramaBook;
 
 @Repository
-public interface DramaBookRepository extends JpaRepository<DramaBook, Long> {}
+public interface DramaBookRepository extends BookRepositoryBase<DramaBook>, JpaRepository<DramaBook, Long> {}

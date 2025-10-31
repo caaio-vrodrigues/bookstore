@@ -7,12 +7,14 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.SallableBook;
 import portfolio.caio.bookstore.model.enums.booksession.ActionSession;
 import portfolio.caio.bookstore.model.interfaces.genre.Action;
@@ -23,7 +25,7 @@ import portfolio.caio.bookstore.model.interfaces.genre.Action;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Data
-@Builder
+@SuperBuilder
 public class ActionBook extends SallableBook implements Action {
 
 	@Id

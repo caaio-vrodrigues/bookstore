@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.SallableBook;
 
-public interface Seller {
+public interface Sallable {
 
 	BigDecimal tenPercentDiscount = BigDecimal.valueOf(0.1);
 	

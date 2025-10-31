@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.fantasy.FantasyBook;
 
 @Repository
-public interface FantasyBookRepository extends JpaRepository<FantasyBook, Long> {}
+public interface FantasyBookRepository extends BookRepositoryBase<FantasyBook>, JpaRepository<FantasyBook, Long> {}
