@@ -5,25 +5,25 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import portfolio.caio.bookstore.infrastructure.entity.book.Book;
+import portfolio.caio.bookstore.infrastructure.entity.book.CreateBookDTO;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.action.ActionBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.adventure.AdventureBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.comedy.ComedyBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.drama.DramaBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.fantasy.FantasyBook;
 import portfolio.caio.bookstore.infrastructure.entity.sallablebook.romance.RomanceBook;
-import portfolio.caio.bookstore.model.interfaces.Seller;
 
 @MappedSuperclass
+@EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
 @Data
 @JsonTypeInfo(
 	use=JsonTypeInfo.Id.NAME,
@@ -38,11 +38,11 @@ import portfolio.caio.bookstore.model.interfaces.Seller;
 	@JsonSubTypes.Type(value=FantasyBook.class, name="fantasyBook"),
 	@JsonSubTypes.Type(value=RomanceBook.class, name="romanceBook")
 })
-public abstract class SallableBook extends Book implements Seller {
+public abstract class CreateSallableBookDTO extends CreateBookDTO {
 	
-	@Column(name="price", nullable=false)
+	@NotNull(message="O campo 'price' não pode ser nulo.")
 	private BigDecimal price;
 	
-	@Column(name="units", nullable=false)
+	@NotNull(message="O campo 'units' não pode ser nulo.")
 	private Integer units;
 }

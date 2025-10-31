@@ -1,4 +1,4 @@
-package portfolio.caio.bookstore.infrastructure.entity;
+package portfolio.caio.bookstore.infrastructure.entity.book;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
